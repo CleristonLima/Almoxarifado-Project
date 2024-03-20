@@ -28,6 +28,15 @@ namespace Almoxarifado
             // Registrar o serviço InternetService
             services.AddScoped<InternetService>();
 
+            services.AddSession(options =>
+            {
+                // Definir tempo de expiração da sessão
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                // Configurar o cookie da sessão
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddDbContext<BaseContext>(options =>
                 options.UseSqlServer("Data Source=DESKTOP-2MLSNHE\\SQLEXPRESS;Initial Catalog=DB_ALMOXARIFADO;Integrated Security=True;"));
         }
@@ -57,6 +66,8 @@ namespace Almoxarifado
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 
