@@ -30,12 +30,21 @@ namespace Almoxarifado.Models.CadastroUser
                     {
                         if (dr.Read())
                         {
+                            Console.WriteLine("Usuário encontrado na base de dados.");
                             // Verifica se a senha fornecida corresponde à senha armazenada no banco de dados
                             if (PasswordLogin == dr["PASSWORD_LOGIN"].ToString())
                             {
                                 // Autenticação bem-sucedida
                                 result = true;
                             }
+                            else
+                            {
+                                Console.WriteLine("Senha incorreta.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Usuário não encontrado na base de dados.");
                         }
                     }
                 }

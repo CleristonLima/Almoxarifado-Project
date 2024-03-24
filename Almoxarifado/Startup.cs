@@ -39,6 +39,9 @@ namespace Almoxarifado
 
             services.AddDbContext<BaseContext>(options =>
                 options.UseSqlServer("Data Source=DESKTOP-2MLSNHE\\SQLEXPRESS;Initial Catalog=DB_ALMOXARIFADO;Integrated Security=True;"));
+
+            // Outros serviços
+            services.AddControllersWithViews();
         }
 
         public IConfiguration Configuration { get; }
