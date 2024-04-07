@@ -29,6 +29,9 @@ namespace Almoxarifado
             // Registrar o serviço InternetService
             services.AddScoped<InternetService>();
 
+            // Adicionar suporte ao acesso ao HttpContext
+            services.AddHttpContextAccessor();
+
             services.AddSession(options =>
             {
                 // Definir tempo de expiração da sessão
@@ -87,11 +90,16 @@ namespace Almoxarifado
                     name: "default",
                  pattern: "{controller=Home}/{action=Index}/{id?}");
 
+                /*---------------------------------------------------------------*/
+
+                // Caminhos da tela de menu
+
                 // Caminho para funçoes de Administration
                 endpoints.MapControllerRoute(
                     name: "administration",
                  pattern: "Administrator/Administration", // Rota para a página de administração
                 defaults: new { controller = "Menu", action = "Administration" });
+
 
                 // Caminho para funçoes de RH
 
@@ -111,15 +119,29 @@ namespace Almoxarifado
 
                 endpoints.MapControllerRoute(
                     name: "vehicles",
-                 pattern: "Vehicles/Vehicles", // Rota para a página de Maquinas
+                 pattern: "Vehicles/Vehicles", // Rota para a página de Veiculos
                 defaults: new { controller = "Menu", action = "Vehicles" });
 
                 // Caminho para funçoes de Ferramentas
 
                 endpoints.MapControllerRoute(
                     name: "tools",
-                 pattern: "Tools/Tools", // Rota para a página de Maquinas
+                 pattern: "Tools/Tools", // Rota para a página de Ferramentas
                 defaults: new { controller = "Menu", action = "Tools" });
+
+                endpoints.MapControllerRoute(
+                    name: "logout",
+                 pattern: "Logout/Logout", // Rota para a página de Logout
+                defaults: new { controller = "Logout", action = "Logout" });
+
+                /*---------------------------------------------------------------*/
+
+                // Caminhos da tela de Administração
+
+                endpoints.MapControllerRoute(
+                    name: "voltar",
+                 pattern: "Menu/Menu", // Rota para a página de Logout
+                defaults: new { controller = "Login", action = "Index" });
             });
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Almoxarifado.Conexao;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,12 @@ namespace Almoxarifado.Controllers
     public class MenuController : Controller
     {
         private InternetService _internetService;
+         public MenuController(InternetService internetService)
+         {
+             _internetService = internetService;
 
-        public MenuController(InternetService internetService)
-        {
-            _internetService = internetService;
+         }
 
-        }
 
         public IActionResult Index()
         {
@@ -76,5 +77,6 @@ namespace Almoxarifado.Controllers
 
             return View("~/Views/Tools/Tools.cshtml");
         }
+
     }
 }

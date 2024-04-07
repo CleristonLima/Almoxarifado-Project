@@ -18,6 +18,27 @@ namespace Almoxarifado.Controllers
             _internetService = internetService;
         }
 
+        public IActionResult Index()
+        {
+            // Verificar a conexão com a internet
+            if (!_internetService.VerificarConexaoInternet())
+            {
+                // Retornar uma view com uma mensagem de erro se a conexão com a internet não estiver disponível
+                TempData["Erro"] = "Não foi possível estabelecer conexão com a internet! Favor verificar a conexão";
+                return RedirectToAction("Index", "Home");
+            }
+
+            // Verificar se o usuário já está autenticado na sessão
+            if (HttpContext.Session.GetString("Autorizado") == "Ok")
+            {
+                // Se estiver autenticado, redirecione diretamente para a página principal
+                return RedirectToAction("MenuPrincipal", "Login");
+            }
+
+            // Se não estiver autenticado, exiba a tela de login normalmente
+            return View();
+        }
+
         public IActionResult MenuPrincipal(Login login)
         {
 
@@ -39,6 +60,9 @@ namespace Almoxarifado.Controllers
                         HttpContext.Session.SetString("UsuarioLogado", login.LoginName);
                         HttpContext.Session.SetString("Senha", login.PasswordLogin);
                         HttpContext.Session.SetString("Autorizado", "Ok");
+
+                    // Redirecionar para a página principal após o login bem-sucedido
+                    return View("MenuPrincipal");
                     }
                     else
                     {
@@ -47,9 +71,7 @@ namespace Almoxarifado.Controllers
                         return RedirectToAction("Index", "Home"); // Redirecionar para a página de login
                     }
             }
-
-            // Redirecionar para a página principal após o login bem-sucedido
-            return View("MenuPrincipal");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

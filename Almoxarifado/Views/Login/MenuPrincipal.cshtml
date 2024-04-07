@@ -1,6 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿<script>
+    // Verifica se é um formulário
+    var isForm = false; // Defina como true se for um formulário ou false caso contrário
+
+    // Se for um formulário, recarrega a página automaticamente após 3 segundos
+    if (isForm) {
+        setTimeout(function () {
+            location.reload();
+        }, 3000); // Tempo em milissegundos (3 segundos)
+    }
+</script>
 
 <style>
     .button-container {
@@ -24,37 +32,44 @@
 <h5 text-align=center>Ola seja bem vindo selecione as opções abaixo para acessar o sistema!</h5>
 
 <div class="button-container">
-    <a href="~/Administrator/Administration">
-        <!-- Modificação aqui -->
-        <img src="~/Images/Engrenagem.jpg" width="100" height="100" class="button-img"> <!-- Modificação aqui -->
-        Administração
-    </a>
+        <a href="~/Administrator/Administration">
+            <!-- Modificação aqui -->
+            <img src="~/Images/Engrenagem.jpg" width="100" height="100" class="button-img"> <!-- Modificação aqui -->
+            Administração
+        </a>
 </div>
 
 <div class="button-container">
-    <a href="~/HR/HumanResource">
-        <img src="~/Images/RH.png" width="100" height="100" class="button-img">
-        Recursos Humanos
-    </a>
+        <a href="~/HR/HumanResource">
+            <img src="~/Images/RH.png" width="100" height="100" class="button-img">
+            Recursos Humanos
+        </a>
 </div>
 
 <div class="button-container">
-    <a href="~/Machines/Machines">
-        <img src="~/Images/Maquina.jpg" width="100" height="100" class="button-img">
-        Maquinas
-    </a>
+        <a href="~/Machines/Machines">
+            <img src="~/Images/Maquina.jpg" width="100" height="100" class="button-img">
+            Maquinas
+        </a>
 </div>
 
 <div class="button-container">
-    <a href="~/Vehicles/Vehicles">
-        <img src="~/Images/Veiculo.jpg" width="100" height="100" class="button-img">
-        Veiculos
-    </a>
+        <a href="~/Vehicles/Vehicles">
+            <img src="~/Images/Veiculo.jpg" width="100" height="100" class="button-img">
+            Veiculos
+        </a>
 </div>
 
 <div class="button-container">
-    <a href="~/Tools/Tools">
-        <img src="~/Images/Ferramentas.jpg" width="150" height="120" class="button-img">
-        Ferramentas
-    </a>
+        <a href="~/Tools/Tools">
+            <img src="~/Images/Ferramentas.jpg" width="150" height="120" class="button-img">
+            Ferramentas
+        </a>
+</div>
+
+<div class="button-container">
+        <a href="~/Logout/Logout">
+            <img src="~/Images/Sair.png" width="100" height="100" class="button-img">
+            Logout
+        </a>
 </div>

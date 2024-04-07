@@ -29,14 +29,7 @@ namespace Almoxarifado.Controllers
 
         public IActionResult Voltar()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("MenuPrincipal", "Login");
-            }
-            else
-            {
-                return RedirectToAction("OutraPagina", "OutroController");
-            }
+            return View("MenuPrincipal");
         }
     }
 }
