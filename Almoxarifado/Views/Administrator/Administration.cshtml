@@ -1,4 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿<style>
+    .button-container {
+        display: inline-block;
+        margin-right: 100px;
+        margin-top: 50px;
+        text-align: center;
+    }
 
+    .button-img {
+        vertical-align: middle;
+        margin: auto;
+        display: block;
+    }
+
+    h5 {
+        text-align: center;
+    }
+
+    .voltar-button {
+        margin-top: 250px; /* Adiciona um espaçamento entre o botão de voltar e os outros botões */
+    }
+</style>
+
+<h5 text-align=center>Administração</h5>
+
+<div class="button-container">
+    <a href="~/Administrator/Administration">
+        <img src="~/Images/CadastroUsuario.jpg" width="100" height="100" class="button-img">
+        Cadastro de usuário
+    </a>
+</div>
+
+<div class="button-container">
+    <a href="~/Administrator/Administration">
+        <img src="~/Images/Consulta.png" width="100" height="100" class="button-img">
+        Consultar ou alterar cadastro
+    </a>
+</div>
+
+<div class="button-container">
+    <a href="~/Administrator/Administration">
+        <img src="~/Images/Perfil.png" width="100" height="100" class="button-img">
+        Cadastro de perfil de grupo
+    </a>
+</div>
+
+<form method="post" action="Login/MenuPrincipal">
+    <div class="voltar-button">
+        <a href="~/Login/MenuPrincipal" class="btn btn-primary">Voltar</a>
+    </div>
+</form>

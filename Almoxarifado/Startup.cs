@@ -85,7 +85,41 @@ namespace Almoxarifado
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                // Caminho para funçoes de Administration
+                endpoints.MapControllerRoute(
+                    name: "administration",
+                 pattern: "Administrator/Administration", // Rota para a página de administração
+                defaults: new { controller = "Menu", action = "Administration" });
+
+                // Caminho para funçoes de RH
+
+                endpoints.MapControllerRoute(
+                    name: "hr",
+                 pattern: "HR/HumanResource", // Rota para a página de RH
+                defaults: new { controller = "Menu", action = "HR" });
+
+                // Caminho Para funçoes de Maquinas
+
+                endpoints.MapControllerRoute(
+                    name: "machines",
+                 pattern: "Machines/Machines", // Rota para a página de Maquinas
+                defaults: new { controller = "Menu", action = "Machines" });
+
+                // Caminho para funçoes de Veiculos
+
+                endpoints.MapControllerRoute(
+                    name: "vehicles",
+                 pattern: "Vehicles/Vehicles", // Rota para a página de Maquinas
+                defaults: new { controller = "Menu", action = "Vehicles" });
+
+                // Caminho para funçoes de Ferramentas
+
+                endpoints.MapControllerRoute(
+                    name: "tools",
+                 pattern: "Tools/Tools", // Rota para a página de Maquinas
+                defaults: new { controller = "Menu", action = "Tools" });
             });
         }
     }

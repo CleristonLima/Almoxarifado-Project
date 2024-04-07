@@ -20,6 +20,7 @@ namespace Almoxarifado.Controllers
 
         public IActionResult MenuPrincipal(Login login)
         {
+
             // Verificar a conexão com a internet
             if (!_internetService.VerificarConexaoInternet())
             {
@@ -31,24 +32,24 @@ namespace Almoxarifado.Controllers
             // Verificar se o modelo é válido
             if (ModelState.IsValid)
             {
-                // Autenticar o usuário
-                if (login.Authenticate())
-                {
-                    // Armazenar o login na sessão
-                    HttpContext.Session.SetString("UsuarioLogado", login.LoginName);
-                    HttpContext.Session.SetString("Senha", login.PasswordLogin);
-                    HttpContext.Session.SetString("Autorizado", "Ok");
-                }
-                else
-                {
-                    // Adicionar uma mensagem de erro à TempData se a autenticação falhar
-                    TempData["Erro"] = "Usuário ou senha inválidos!";
-                    return RedirectToAction("Index", "Home"); // Redirecionar para a página de login
-                }
+                    // Autenticar o usuário
+                    if (login.Authenticate())
+                    {
+                        // Armazenar o login na sessão
+                        HttpContext.Session.SetString("UsuarioLogado", login.LoginName);
+                        HttpContext.Session.SetString("Senha", login.PasswordLogin);
+                        HttpContext.Session.SetString("Autorizado", "Ok");
+                    }
+                    else
+                    {
+                        // Adicionar uma mensagem de erro à TempData se a autenticação falhar
+                        TempData["Erro"] = "Usuário ou senha inválidos!";
+                        return RedirectToAction("Index", "Home"); // Redirecionar para a página de login
+                    }
             }
 
             // Redirecionar para a página principal após o login bem-sucedido
-            return View("MenuPrincipal", "Login");
+            return View("MenuPrincipal");
         }
     }
 }
