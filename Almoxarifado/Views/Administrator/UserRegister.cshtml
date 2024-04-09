@@ -1,0 +1,42 @@
+﻿<title>CadastroUser</title>
+
+<h5>Cadastro de usuário</h5>
+<br />
+<form method="post">
+    <div>
+        <!-- class="col-sm-5 col-sm-offset-5" -->
+        <label class="nomeLabel" for="Nome" style="width: 70px;">Nome:* </label>
+        <input class="nomeTxtBox" type="text" name="Nome" id="Name_People" style="width: 600px;" />
+    </div>
+    <br />
+    <div>
+        <label for="Login" class="form-label" style="width: 70px;">Login:* </label>
+        <input class="loginTxtBox" type="text" name="Login" id="Login_Name" style="width: 600px;" />
+    </div>
+    <br />
+    <div>
+        <label for="Senha" class="form-label" style="width: 70px;">Senha:* </label>
+        <input class="senhaTxtBox" type="password" name="Senha" id="Password_Login" style="width: 600px;" />
+    </div>
+    <br />
+    <div>
+        <label class="emailLabel" for="Email" style="width: 70px;">Email:* </label>
+        <input class="emailTxtBox" type="text" name="Email" id="Email" style="width: 600px;" />
+    </div>
+    <br />
+    <div>
+        <label for="Genero" style="width: 70px;">Gênero: </label>
+        <select name="Genero" id="Genero">
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+        </select>
+    </div>
+    <br />
+    <p>* Campos obrigatórios</p>
+    <br />
+    <!--<div class="buttons">
+        <button class="btn btn-primary" type="submit"> Cadastrar</button>
+        <button class="btn btn-primary" type="button" onclick="window.location.href='/Admin/Voltar'"> Voltar</button>
+    </div>-->
+</form>

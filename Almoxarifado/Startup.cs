@@ -139,6 +139,11 @@ namespace Almoxarifado
                 // Caminhos da tela de Administração
 
                 endpoints.MapControllerRoute(
+                    name: "register",
+                 pattern: "Administrator/UserRegister", // Rota para a página de Cadastro
+                defaults: new { controller = "Admin", action = "UserRegister" });
+
+                endpoints.MapControllerRoute(
                     name: "voltar",
                  pattern: "Menu/Menu", // Rota para a página de Logout
                 defaults: new { controller = "Login", action = "Index" });

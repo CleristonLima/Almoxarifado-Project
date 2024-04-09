@@ -27,9 +27,15 @@ namespace Almoxarifado.Controllers
             return View();
         }
 
+        public IActionResult UserRegister() {
+
+            return View("~/Views/Administrator/UserRegister.cshtml");
+        }
+
         public IActionResult Voltar()
         {
-            return View("MenuPrincipal");
+            return View("~/Views/Administrator/MenuPrincipal.cshtml");
         }
+
     }
 }
